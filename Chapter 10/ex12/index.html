@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Numbers</title>
+    <script>
+        function readNumbers() {
+            const numbers = [];
+            const uniqueNumbers = [];
+
+            for (let i = 0; i < 10; i++) {
+                let num = parseInt(prompt(`Enter number ${i + 1} (between 10 and 100):`), 10);
+
+                if (num >= 10 && num <= 100) {
+                    if (!uniqueNumbers.includes(num)) {
+                        uniqueNumbers.push(num);
+                        console.log(num);
+                    }
+                } else {
+                    alert("Number must be between 10 and 100. Please try again.");
+                    i--; // Decrement i to repeat the iteration for invalid input
+                }
+            }
+
+            document.getElementById('output').innerText = `Unique numbers: ${uniqueNumbers.join(', ')}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Unique Numbers</h1>
+    <button onclick="readNumbers()">Enter Numbers</button>
+    <p id="output"></p>
+</body>
+</html>
