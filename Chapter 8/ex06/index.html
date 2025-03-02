@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Smallest Integer</title>
+    <script>
+        function findSmallest() {
+            let numberOfValues = parseInt(prompt("Enter the number of values:"));
+            if (isNaN(numberOfValues) || numberOfValues <= 0) {
+                alert("Please enter a valid number of values.");
+                return;
+            }
+
+            let smallest = Infinity;
+
+            for (let i = 0; i < numberOfValues; i++) {
+                let value = parseInt(prompt(`Enter value ${i + 1}:`));
+                if (isNaN(value) || value < 0) {
+                    alert("Please enter a valid nonnegative integer.");
+                    i--; // Repeat this iteration
+                    continue;
+                }
+                if (value < smallest) {
+                    smallest = value;
+                }
+            }
+
+            alert(`The smallest value is: ${smallest}`);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="findSmallest()">Find Smallest Integer</button>
+</body>
+</html>
