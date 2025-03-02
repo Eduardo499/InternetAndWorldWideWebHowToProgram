@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime number</title>
+    <script>
+        function isPrime(number) {
+            if (number < 2) {
+                return false;
+            }
+            for (var i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        function displayPrime() {
+            var inputField = document.getElementById("number");
+            var number = inputField.value;
+            var result = document.getElementById("result");
+            if (isPrime(number)) {
+                result.innerHTML = number + " is a prime number.";
+            } else {
+                result.innerHTML = number + " is not a prime number.";
+            }
+        }
+        function printPrimes() {
+            document.writeln("<table border='1'>");
+            document.writeln("<tr>");
+            document.writeln("<th>Prime numbers</th>");
+            document.writeln("</tr>");
+            for (var i = 2; i <= 1000; i++) {
+                if (isPrime(i)) {
+                    document.writeln("<tr>");
+                    document.writeln("<td>" + i + "</td>");
+                    document.writeln("</tr>");
+                }
+            }
+            document.writeln("</table>");
+        }
+        function start() {
+            var button = document.getElementById("verifyButton");
+            button.addEventListener("click", displayPrime);
+        }
+        window.onload = start;
+    </script>
+</head>
+<body>
+    <form action="#">
+        <label for="number">Number:</label>
+        <input type="number" id="number">
+        <button id="verifyButton">Verify</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        printPrimes();
+    </script>
+</body>
+</html>
