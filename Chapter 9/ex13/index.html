@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power</title>
+    <script>
+        function integerPower(base, exponent) {
+            var result = 1;
+            for (var i = 0; i < exponent; i++) {
+                result *= base;
+            }
+            return result;
+        }
+        function displayPower() {
+            var baseField = document.getElementById("base");
+            var base = baseField.value;
+            var exponentField = document.getElementById("exponent");
+            var exponent = exponentField.value;
+            var result = document.getElementById("result");
+            result.innerHTML = base + " raised to the power of " + exponent + " is " + integerPower(base, exponent);
+        }
+        function start() {
+            var button = document.getElementById("calculateButton");
+            button.onclick = displayPower;
+        }
+        window.onload = start;
+    </script>
+</head>
+<body>
+    <form action="#">
+        <label for="base">Base:</label>
+        <input type="number" id="base">
+        <label for="exponent">Exponent:</label>
+        <input type="number" id="exponent">
+        <button id="calculateButton">Calculate</button>
+    </form>
+    <p id="result"></p>
+</body>
+</html>
