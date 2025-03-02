@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sieve of Eratosthenes</title>
+    <script>
+        function sieveOfEratosthenes() {
+            const limit = 1000;
+            const primes = new Array(limit).fill(true);
+            primes[0] = primes[1] = false; // 0 and 1 are not prime numbers
+
+            for (let i = 2; i < Math.sqrt(limit); i++) {
+                if (primes[i]) {
+                    for (let j = i * i; j < limit; j += i) {
+                        primes[j] = false;
+                    }
+                }
+            }
+
+            const primeNumbers = [];
+            for (let i = 2; i < limit; i++) {
+                if (primes[i]) {
+                    primeNumbers.push(i);
+                }
+            }
+
+            document.getElementById('result').innerText = primeNumbers.join(', ');
+        }
+
+        window.onload = sieveOfEratosthenes;
+    </script>
+</head>
+<body>
+    <h1>Prime Numbers between 1 and 999</h1>
+    <p id="result"></p>
+</body>
+</html>
