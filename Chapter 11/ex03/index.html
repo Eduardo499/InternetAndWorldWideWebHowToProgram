@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Functions Test</title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Math Functions Test</h1>
+    <textarea id="results" readonly></textarea>
+
+    <script>
+        function testMathFunctions() {
+            const results = [];
+            const values = [0, 0.5, 1, 2, 3, 4, 5, 10, 20, 50, 100];
+
+            results.push("Math.abs(x):");
+            values.forEach(value => results.push(`Math.abs(${value}) = ${Math.abs(value)}`));
+
+            results.push("\nMath.ceil(x):");
+            values.forEach(value => results.push(`Math.ceil(${value}) = ${Math.ceil(value)}`));
+
+            results.push("\nMath.floor(x):");
+            values.forEach(value => results.push(`Math.floor(${value}) = ${Math.floor(value)}`));
+
+            results.push("\nMath.round(x):");
+            values.forEach(value => results.push(`Math.round(${value}) = ${Math.round(value)}`));
+
+            results.push("\nMath.max(x, y):");
+            values.forEach(value => results.push(`Math.max(${value}, 10) = ${Math.max(value, 10)}`));
+
+            results.push("\nMath.min(x, y):");
+            values.forEach(value => results.push(`Math.min(${value}, 10) = ${Math.min(value, 10)}`));
+
+            results.push("\nMath.pow(x, y):");
+            values.forEach(value => results.push(`Math.pow(${value}, 2) = ${Math.pow(value, 2)}`));
+
+            results.push("\nMath.sqrt(x):");
+            values.forEach(value => results.push(`Math.sqrt(${value}) = ${Math.sqrt(value)}`));
+
+            results.push("\nMath.log(x):");
+            values.forEach(value => results.push(`Math.log(${value}) = ${Math.log(value)}`));
+
+            results.push("\nMath.exp(x):");
+            values.forEach(value => results.push(`Math.exp(${value}) = ${Math.exp(value)}`));
+
+            results.push("\nMath.sin(x):");
+            values.forEach(value => results.push(`Math.sin(${value}) = ${Math.sin(value)}`));
+
+            results.push("\nMath.cos(x):");
+            values.forEach(value => results.push(`Math.cos(${value}) = ${Math.cos(value)}`));
+
+            results.push("\nMath.tan(x):");
+            values.forEach(value => results.push(`Math.tan(${value}) = ${Math.tan(value)}`));
+
+            document.getElementById('results').value = results.join('\n');
+        }
+
+        testMathFunctions();
+    </script>
+</body>
+</html>
