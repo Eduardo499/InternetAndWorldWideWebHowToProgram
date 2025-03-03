@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Comparison</title>
+    <script>
+        function compareStrings() {
+            const string1 = document.getElementById('string1').value;
+            const string2 = document.getElementById('string2').value;
+            let result = '';
+
+            if (string1 < string2) {
+                result = `"${string1}" is less than "${string2}"`;
+            } else if (string1 > string2) {
+                result = `"${string1}" is greater than "${string2}"`;
+            } else {
+                result = `"${string1}" is equal to "${string2}"`;
+            }
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>String Comparison</h1>
+    <form onsubmit="event.preventDefault(); compareStrings();">
+        <label for="string1">First String:</label>
+        <input type="text" id="string1" name="string1" required>
+        <br>
+        <label for="string2">Second String:</label>
+        <input type="text" id="string2" name="string2" required>
+        <br>
+        <button type="submit">Compare</button>
+    </form>
+    <p id="result"></p>
+</body>
+</html>
