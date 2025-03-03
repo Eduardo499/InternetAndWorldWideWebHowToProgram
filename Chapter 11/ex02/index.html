@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Date Alerts</title>
+    <script>
+        function showAlert(type) {
+            const now = new Date();
+            let alertMessage;
+
+            switch(type) {
+                case 'now':
+                    alertMessage = `Current Date and Time: ${now}`;
+                    break;
+                case 'yesterday':
+                    const yesterday = new Date(now);
+                    yesterday.setDate(now.getDate() - 1);
+                    alertMessage = `Yesterday's Date and Time: ${yesterday}`;
+                    break;
+                case 'tenYearsAgo':
+                    const tenYearsAgo = new Date(now);
+                    tenYearsAgo.setFullYear(now.getFullYear() - 10);
+                    alertMessage = `Date and Time Ten Years Ago: ${tenYearsAgo}`;
+                    break;
+                case 'oneWeekFromToday':
+                    const oneWeekFromToday = new Date(now);
+                    oneWeekFromToday.setDate(now.getDate() + 7);
+                    alertMessage = `Date and Time One Week From Today: ${oneWeekFromToday}`;
+                    break;
+                default:
+                    alertMessage = 'Invalid option';
+            }
+
+            alert(alertMessage);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="showAlert('now')">Now</button>
+    <button onclick="showAlert('yesterday')">Yesterday</button>
+    <button onclick="showAlert('tenYearsAgo')">Ten Years Ago</button>
+    <button onclick="showAlert('oneWeekFromToday')">One Week From Today</button>
+</body>
+</html></html>
