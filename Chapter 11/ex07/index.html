@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Sentence Generator</title>
+    <script>
+        function generateRandomSentence() {
+            const articles = ["the", "a", "one", "some", "any"];
+            const nouns = ["boy", "girl", "dog", "town", "car"];
+            const verbs = ["drove", "jumped", "ran", "walked", "skipped"];
+            const prepositions = ["to", "from", "over", "under", "on"];
+
+            function getRandomElement(arr) {
+                return arr[Math.floor(Math.random() * arr.length)];
+            }
+
+            let sentence = `${getRandomElement(articles)} ${getRandomElement(nouns)} ${getRandomElement(verbs)} ${getRandomElement(prepositions)} ${getRandomElement(articles)} ${getRandomElement(nouns)}`;
+            sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1) + '.';
+            return sentence;
+        }
+
+        function generateStory() {
+            let story = "Once upon a time...\n\n";
+            for (let i = 0; i < 20; i++) {
+                story += generateRandomSentence() + "\n";
+            }
+            story += "\nTHE END";
+            document.getElementById("story").value = story;
+        }
+
+        window.onload = generateStory;
+    </script>
+</head>
+<body>
+    <h1>Random Sentence Generator</h1>
+    <textarea id="story" rows="20" cols="80" readonly></textarea>
+</body>
+</html>
